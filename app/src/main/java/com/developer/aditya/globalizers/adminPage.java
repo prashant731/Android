@@ -62,6 +62,7 @@ public class adminPage extends AppCompatActivity
     TextView name;
     TextView num;
     boolean courseClicked=false;
+    boolean url3 = false,url1=false,url2=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +151,9 @@ public class adminPage extends AppCompatActivity
 //        startActivity(intent);
         drawME=true;
         statsShow = true;
+//        url1=false;
+//        url2=false;
+//        url3 = true;
         onCreat4();
     }
 
@@ -158,6 +162,9 @@ public class adminPage extends AppCompatActivity
 //        startActivity(intent);
         drawME = true;
         dueShow = true;
+//        url1=false;
+//        url2=false;
+//        url3 = true;
         onCreat3();
     }
 
@@ -339,6 +346,9 @@ public class adminPage extends AppCompatActivity
         TextView heading = (TextView) findViewById(R.id.head);
         heading.setText(COURSE);
         listView = (ListView)findViewById(R.id.prototype_cell);
+        url1=true;
+        url2=false;
+        url3 = false;
         new InternAppAsyncTask().execute(createUrl(dataUrl));
     }
 
@@ -347,6 +357,9 @@ public class adminPage extends AppCompatActivity
         Log.e("On create 2 with url", "onCreat2: "+dataUrl2 );
         setContentView(R.layout.activity_student_detail);
         listView = (ListView)findViewById(R.id.prototype_cell_studentInfo);
+        url1=false;
+        url2=true;
+        url3 = false;
         new InternAppAsyncTask().execute(createUrl(dataUrl2));
     }
 
@@ -354,6 +367,9 @@ public class adminPage extends AppCompatActivity
         Log.e("On create 3 with url", "onCreat3: "+dataUrl );
         setContentView(R.layout.activity_due);
         listView = (ListView)findViewById(R.id.dueList);
+        url1=true;
+        url2=false;
+        url3 = false;
         new InternAppAsyncTask().execute(createUrl(dataUrl));
     }
 
@@ -361,6 +377,9 @@ public class adminPage extends AppCompatActivity
         Log.e("On create 4 with url", "onCreat4: "+dataUrl3 );
         setContentView(R.layout.activity_stats);
         listView = (ListView)findViewById(R.id.stateList);
+        url1=false;
+        url2=false;
+        url3 = true;
         new InternAppAsyncTask().execute(createUrl(dataUrl3));
     }
 
@@ -379,10 +398,15 @@ public class adminPage extends AppCompatActivity
         }
         @Override
         protected String doInBackground(URL... urls) {
-            URL url;
-            if(!stud){
-                url = createUrl(dataUrl);}
-            else url = createUrl(dataUrl2);
+            URL url = null;
+            if(url1){
+                url = createUrl(dataUrl);
+            }
+            else if(url3)
+            {
+                url = createUrl(dataUrl3);
+            }
+            else if(url2) url = createUrl(dataUrl2);
             String jsonResponse = "";
             try{
                 jsonResponse = makeHttpRequest(url);
