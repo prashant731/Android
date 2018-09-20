@@ -1,0 +1,150 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.developer.aditya.globalizers.studentDetailActivity">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@color/themeColor">
+
+            <ImageView
+                android:id="@+id/imageStudentInfo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/admin_login" />
+
+            <TextView
+                android:id="@+id/studentInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageStudentInfo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="DummyName"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/studentInfoCourseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/studentInfoName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="DummyCourse"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+
+            <TextView
+                android:id="@+id/studentInfoStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/studentInfoCourseName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:text="Total Attendance : 0/30" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginLeft="18dp"
+                >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ffffff"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/callStudent"
+                    android:onClick="makeCallStudent"
+                    >
+                    <ImageView
+                        android:id="@+id/imageCallStudStudentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/admin_login" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_toRightOf="@id/imageCallStudStudentInfo"
+                        android:text="Call Student"
+                        android:textColor="#ffffff"
+                        android:layout_marginLeft="8dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:onClick="makeCallParent"
+                    android:id="@+id/callParent"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageCallParentStudentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/admin_login" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_toRightOf="@id/imageCallParentStudentInfo"
+                        android:text="Call Parent"
+                        android:textColor="#ffffff"
+                        android:layout_marginLeft="8dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ListView
+                android:id="@+id/prototype_cell_studentInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="18dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="18dp"
+                >
+
+            </ListView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

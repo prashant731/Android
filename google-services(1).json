@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "44889623385",
+    "firebase_url": "https://globalizers-95876.firebaseio.com",
+    "project_id": "globalizers-95876",
+    "storage_bucket": "globalizers-95876.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44889623385:android:d66ed1679a43e883",
+        "android_client_info": {
+          "package_name": "com.developer.aditya.globalizers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44889623385-8pp40boi8r44tgfo5n0mk70iafectdgb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_iu1L_JHvk_M2ygzLFKagiK-V4hG6vxg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
