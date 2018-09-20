@@ -38,7 +38,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -166,7 +169,7 @@ public class adminPage extends AppCompatActivity
         setContentView(R.layout.activity_course_clicked_student_profile);
         listView = (ListView)findViewById(R.id.prototype_cell_studentInfo);
         new InternAppAsyncTask().execute(createUrl(dataUrl2));
-        Toast.makeText(adminPage.this,"Temporary Removed",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(adminPage.this,"Temporary Removed",Toast.LENGTH_SHORT).show();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -189,7 +192,7 @@ public class adminPage extends AppCompatActivity
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 2 total pages.
             return 2;
         }
 
@@ -355,10 +358,10 @@ public class adminPage extends AppCompatActivity
     }
 
     public void onCreat4() {
-        Log.e("On create 4 with url", "onCreat4: "+dataUrl );
+        Log.e("On create 4 with url", "onCreat4: "+dataUrl3 );
         setContentView(R.layout.activity_stats);
         listView = (ListView)findViewById(R.id.stateList);
-        new InternAppAsyncTask().execute(createUrl(dataUrl));
+        new InternAppAsyncTask().execute(createUrl(dataUrl3));
     }
 
 
@@ -451,6 +454,54 @@ public class adminPage extends AppCompatActivity
         return url;
     }
 
+    public ArrayList<MyDue> sort1(ArrayList<MyDue> A)
+    {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            for(int i=0;i<A.size();i++) {
+                for (int j = 0; j < A.size() - i - 1; j++) {
+                    try {
+                        Date date1 = format.parse(A.get(j).getDate());
+                        Date date2 = format.parse(A.get(j + 1).getDate());
+                        if (date1.after(date2)) {
+                            MyDue temp;
+                            temp = A.get(j);
+                            A.set(j, A.get(j + 1));
+                            A.set(j + 1, temp);
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            ArrayList<MyDue> B = new ArrayList<MyDue>();
+            B=A;
+            return B;
+    }
+
+    public ArrayList<MyStats> sort2(ArrayList<MyStats> A)
+    {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        for(int i=0;i<A.size();i++) {
+            for (int j = 0; j < A.size() - i -1; j++) {
+                try {
+                    Date date1 = format.parse(A.get(j).getDate());
+                    Date date2 = format.parse(A.get(j + 1).getDate());
+                    if (date2.after(date1)) {
+                        MyStats temp;
+                        temp = A.get(j);
+                        A.set(j, A.get(j + 1));
+                        A.set(j + 1, temp);
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        ArrayList<MyStats> B = new ArrayList<MyStats>();
+        B=A;
+        return B;
+    }
+
     public void updateUI(String jsonData) {
 
         if (!stud) {
@@ -501,7 +552,10 @@ public class adminPage extends AppCompatActivity
             for (Map.Entry<Integer, MyDue> eachName : myNameHashMap.entrySet()) {
                 myNameArrayList.add(eachName.getValue());
             }
-            AdapterClassDue itemAdapter = new AdapterClassDue(this, myNameArrayList);
+           // Log.e("Before Sort : ", "updateUI: "+myNameArrayList );
+            ArrayList<MyDue> farrList = sort1(myNameArrayList);
+            //Log.e("After Sort : ", "updateUI: "+farrList.toString() );
+            AdapterClassDue itemAdapter = new AdapterClassDue(this, farrList);
             listView.setAdapter(itemAdapter);
         }
         else if(drawME && statsShow)
@@ -515,7 +569,9 @@ public class adminPage extends AppCompatActivity
             for (Map.Entry<Integer, MyStats> eachName : myNameHashMap.entrySet()) {
                 myNameArrayList.add(eachName.getValue());
             }
-            AdapterClassStats itemAdapter = new AdapterClassStats(this, myNameArrayList);
+
+            ArrayList<MyStats> farrList = sort2(myNameArrayList);
+            AdapterClassStats itemAdapter = new AdapterClassStats(this, farrList);
             listView.setAdapter(itemAdapter);
         }
         else if(courseClicked)
