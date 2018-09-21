@@ -170,6 +170,9 @@ public class adminPage extends AppCompatActivity
 
     public void callActivityNew(View view) {
         numbers = new String[2];
+                url1=false;
+        url3=false;
+        url2 = true;
         courseClicked = true;
         name = (TextView) findViewById(R.id.studName);
         num = (TextView)findViewById(R.id.studentMobile);
@@ -349,6 +352,9 @@ public class adminPage extends AppCompatActivity
         url1=true;
         url2=false;
         url3 = false;
+//        GlobalizersAsyncTask globalizersAsyncTask = new GlobalizersAsyncTask();
+//        globalizersAsyncTask.context = adminPage.this;
+//        globalizersAsyncTask.dataUrl = dataUrl;
         new InternAppAsyncTask().execute(createUrl(dataUrl));
     }
 
@@ -401,17 +407,26 @@ public class adminPage extends AppCompatActivity
             URL url = null;
             if(url1){
                 url = createUrl(dataUrl);
+                //url1=false;
             }
             else if(url3)
             {
                 url = createUrl(dataUrl3);
+              //  url3=false;
             }
-            else if(url2) url = createUrl(dataUrl2);
+            else if(url2)
+            {
+                url = createUrl(dataUrl2);
+               // url2=false;
+            }
+
+           // ListView lv = (ListView)findViewById(R.id.)
             String jsonResponse = "";
             try{
                 jsonResponse = makeHttpRequest(url);
-                Log.e("json data-------------", "doInBackground: "+jsonResponse);
+                Log.e("json data-------------", "doInBackground: "+jsonResponse + url);
             }catch (IOException e){
+                Log.e("Url3", "doInBackground: "+url );
 
             }
             return jsonResponse;
@@ -456,7 +471,7 @@ public class adminPage extends AppCompatActivity
                 Log.e("Respone found : ", "makeHttpRequest: "+jsonResponse );
             }
         }catch (IOException e){
-            Log.e("Exception", "makeHttpRequest: ", e.getCause());
+            Log.e("Exception", "makeHttpRequest: " + url, e.getCause());
         }finally {
             if(urlConnection!=null){
                 urlConnection.disconnect();
@@ -554,6 +569,8 @@ public class adminPage extends AppCompatActivity
                 TextView skills = (TextView) findViewById(R.id.studentInfoCourseName);
                 skills.setText(myNameArrayList.get(0).getCourse());
 
+                TextView attendance = (TextView)findViewById(R.id.studentInfoStats);
+                attendance.setText("Total attendance : "+myNameArrayList.size() + "/30");
 
                 Log.e("Name and Course", "updateUI: " + name + skills);
                 AdapterClassNew itemAdapter = new AdapterClassNew(this, myNameArrayList);
@@ -624,6 +641,8 @@ public class adminPage extends AppCompatActivity
                 TextView course = (TextView) findViewById(R.id.studentInfoCourseNameCourse);
                 course.setText(myNameArrayList.get(0).getCourse());
 
+                TextView attendance = (TextView)findViewById(R.id.studentInfoStatsCourse);
+                attendance.setText("Total attendance : "+myNameArrayList.size()+"/30");
 
                 Log.e("Name and Course", "updateUI: " + name + course);
                 AdapterClassNew itemAdapter = new AdapterClassNew(this, myNameArrayList);

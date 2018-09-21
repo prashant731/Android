@@ -2,6 +2,7 @@ package com.developer.aditya.globalizers;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class AdapterClassNew extends ArrayAdapter<MyStudent> {
         MyStudent myString = getItem(position);
 
         TextView checktime = (TextView)listItem.findViewById(R.id.checktime);
+        Log.e("Timestamp : ", "getView: "+myString.getTimeStamp() );
         checktime.setText(myString.getTimeStamp());
 
         return  listItem;

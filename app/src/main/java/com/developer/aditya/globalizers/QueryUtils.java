@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,13 +26,12 @@ import java.util.HashMap;
                     JSONObject js = jsonArray.getJSONObject(i);
                     Log.e("JSonObject : ", "extractRecord: "+js);
                     String name="Dummy";
-                    int number=0;
+                    String number=null;
                     if(js.has("Course") && js.getString("Course").equalsIgnoreCase(course)){
                         if(js.has("Name")) name=js.getString("Name");
-                        if(js.has("PersonalContact")) number=(js.getInt("PersonalContact"));
-                        String numberS = number + " ";
-                        Log.e("Name and number", "extractRecord: "+name + numberS);
-                        result.put(i++,new MyName(name,numberS));
+                        if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
+                        Log.e("Name and number", "extractRecord: "+name + number);
+                        result.put(i++,new MyName(name,number));
                     }
                 }
             }
@@ -51,6 +51,8 @@ import java.util.HashMap;
             String parent=null;
             String id=null;
             String course = null;
+            String date = null;
+            String time = null;
             String timeStamp = null;
             try {
                 JSONArray jsonArray = new JSONArray(sampleJsonResponse);
@@ -65,8 +67,10 @@ import java.util.HashMap;
                         if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
                         if(js.has("ParentContact")) parent = (js.getString("ParentContact"));
                         if(js.has("Course")) course= (js.getString("Course"));
-                        if(js.has("TimeStamp"))  timeStamp = (js.getString("TimeStamp"));
-                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
+                        if(js.has("Date"))  date = (js.getString("Date"));
+                        if(js.has("time"))  time = (js.getString("time"));
+                        timeStamp = date + " " + time;
+                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp + date + time);
                         result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
                     }
                 }
@@ -175,7 +179,7 @@ import java.util.HashMap;
                         if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
                         if(js.has("ParentContact")) parent = (js.getString("ParentContact"));
                         if(js.has("Course")) course= (js.getString("Course"));
-                        if(js.has("TimeStamp"))  timeStamp = (js.getString("TimeStamp"));
+                        if(js.has("Date"))  timeStamp = (js.getString("Date"));
                         Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
                         result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
                     }

@@ -30,7 +30,7 @@
                 android:id="@+id/studentInfoNameCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageStudentInfo"
+                android:layout_below="@id/imageStudentInfoCourse"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
                 android:text="DummyName"
@@ -41,7 +41,7 @@
                 android:id="@+id/studentInfoCourseNameCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/studentInfoName"
+                android:layout_below="@id/studentInfoNameCourse"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
                 android:text="DummyCourse"
@@ -49,7 +49,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 
             <TextView
-                android:id="@+id/studentInfoStats"
+                android:id="@+id/studentInfoStatsCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/studentInfoCourseNameCourse"
