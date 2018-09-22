@@ -105,15 +105,16 @@ import java.util.HashMap;
                     Log.e("JSonObject : ", "extractRecord: " + js);
                     String name = "Dummy";
                     String number = "";
+                    String course = "";
                     if (js.has("DueDate")) {
 //                        String dateFound = js.getString("DueDate");
 //                        Date strDate = sdf.parse();
 //                        if(new Date().after(strDate)) {
                         if (js.has("Name")) name = js.getString("Name");
                         if (js.has("DueDate")) number = (js.getString("DueDate"));
-                        String numberS = number + " ";
-                        Log.e("Name and date", "extractRecord: " + name + numberS);
-                        result.put(i++, new MyDue(name, numberS));
+                        if (js.has("Course")) course = (js.getString("Course"));
+                        Log.e("Name and date", "extractRecord: " + name + number);
+                        result.put(i++, new MyDue(name, number,course));
 //                        }
                     }
                 }
@@ -182,6 +183,47 @@ import java.util.HashMap;
                         if(js.has("Date"))  timeStamp = (js.getString("Date"));
                         Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
                         result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
+                        break;
+                    }
+                }
+            }
+            catch (JSONException e){
+                Log.e("Query Utils : ", "extractRecord Problem: ", e);
+            }
+            if(number!=null || parent!=null){
+                studCon[0]=number;
+                studCon[1]=parent;}
+            return result;
+        }
+
+        public static HashMap<Integer, MyStudent> extractRecord(String username,String course,String sampleJsonResponse,String[] studCon,boolean n,boolean m)
+        {
+            HashMap<Integer,MyStudent> result = new HashMap<>();
+            String name=null;
+//            int number=0;
+//            int parent=0;
+            String number=null;
+            String parent=null;
+            String id=null;
+            //String course = null;
+            String timeStamp = null;
+            try {
+                JSONArray jsonArray = new JSONArray(sampleJsonResponse);
+                for(int i=0;i<jsonArray.length();i++)
+                {
+                    JSONObject js = jsonArray.getJSONObject(i);
+                    Log.e("JSonObject : ", "extractRecord: "+js);
+                    if((js.has("Name") && js.getString("Name").equalsIgnoreCase(username)) && (js.has("Course") && js.getString("Course").equalsIgnoreCase(course)))
+                    {
+                        name=js.getString("Name");
+                        id = js.getString("CardID");
+                        if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
+                        if(js.has("ParentContact")) parent = (js.getString("ParentContact"));
+                        if(js.has("Course")) course= (js.getString("Course"));
+                        if(js.has("Date"))  timeStamp = (js.getString("Date"));
+                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
+                        result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
+                        break;
                     }
                 }
             }

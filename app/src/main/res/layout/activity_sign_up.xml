@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="#ffffff"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/user_image" />
+            android:src="@drawable/logo" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -36,13 +36,14 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/textColor" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
             <EditText
                 android:id="@+id/password"
@@ -50,10 +51,11 @@
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true"
                 android:imeOptions="actionUnspecified"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/textColor" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -62,11 +64,11 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorAccent"
+            android:layout_marginTop="24dp"
             android:text="Sign Up"
             android:textColor="@color/textColor"
             android:onClick="signUp"
+            android:background="@drawable/buttonshape"
             android:textStyle="bold" />
 
         <!--android:hint="Password"-->

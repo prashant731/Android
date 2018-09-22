@@ -6,29 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3"
+    android:weightSum="4"
     tools:context=".Due">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/themeColor">
+        android:background="@color/colorBrown">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dues Of Students"
+            android:text="Dues"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:orientation="vertical">
         <ListView
+            tools:listitem="@layout/cardview_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/dueList"
@@ -39,3 +40,47 @@
         </ListView>
     </LinearLayout>
 </LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:background="#FFF">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="120dp"-->
+    <!--android:orientation="vertical"-->
+    <!--android:id="@+id/linear"-->
+    <!--android:background="@color/colorBrown"-->
+    <!--&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_gravity="center|center_horizontal">-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Due"-->
+    <!--android:textColor="#FFF"-->
+    <!--android:textSize="25sp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:gravity="center"-->
+    <!--/>-->
+    <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<ListView-->
+
+    <!--tools:listitem="@layout/cardview_item"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#95ffffff"-->
+    <!--android:id="@+id/dueList"-->
+    <!--android:layout_below="@+id/linear">-->
+
+    <!--</ListView>-->
+
+    <!--</RelativeLayout>-->

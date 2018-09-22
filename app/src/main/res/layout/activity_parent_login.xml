@@ -7,19 +7,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="3"
+    android:background="#ffffff"
     tools:context="com.developer.aditya.globalizers.parent_login">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/themeColor"
+        android:background="#ffffff"
         android:layout_weight="1">
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Parent Login"
-            android:layout_centerInParent="true"
-            android:textColor="@color/textColor"
-            />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            android:src="@drawable/logo" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,8 +42,9 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:layout_marginTop="60dp"
-                android:background="@drawable/edittext_rounded"
+                android:background="@drawable/textshape"
                 android:id="@+id/emailLogin"
+                android:inputType="textEmailAddress"
                 android:hint="Email"
                 android:padding="5dip" />
 
@@ -53,7 +55,8 @@
                 android:layout_marginRight="18dp"
                 android:layout_marginTop="30dp"
                 android:id="@+id/passwordLogin"
-                android:background="@drawable/edittext_rounded"
+                android:inputType="textPassword"
+                android:background="@drawable/textshape"
                 android:hint="Password"
                 android:padding="5dip" />
 
@@ -63,8 +66,7 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/edittext_rounded"
-                android:backgroundTint="@color/themeColor"
+                android:background="@drawable/buttonshape"
                 android:padding="5dip"
                 android:text="Login"
                 android:onClick="signIn"
@@ -98,3 +100,59 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.developer.aditya.globalizers.parent_login"-->
+    <!--android:background="#ffffff">-->
+
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="47dp"-->
+        <!--android:src="@drawable/logo" />-->
+
+    <!--<EditText-->
+        <!--android:layout_width="323dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="225dp"-->
+        <!--android:background="@drawable/textshape"-->
+        <!--android:id="@+id/emailLogin"-->
+        <!--android:hint="Username"-->
+        <!--android:padding="15dp" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/passwordLogin"-->
+        <!--android:layout_width="319dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="170dp"-->
+        <!--android:background="@drawable/textshape"-->
+
+        <!--android:hint="Password"-->
+        <!--android:padding="15dp" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/Button"-->
+        <!--android:layout_width="323dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="126dp"-->
+        <!--android:background="@drawable/buttonshape"-->
+        <!--android:padding="15dp"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:onClick="signIn"-->
+        <!--android:textStyle="bold"-->
+        <!--android:text="LOGIN" />-->
+
+
+<!--</RelativeLayout>-->

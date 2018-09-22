@@ -6,20 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3"
+    android:weightSum="4"
     tools:context="com.developer.aditya.globalizers.admin_login">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/themeColor"
-        android:layout_weight="1">
+        android:background="#b62840"
+        android:layout_weight="2">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Admin Login"
             android:layout_centerInParent="true"
-            android:textColor="@color/textColor"
-            />
+            android:textColor="#ffffff"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+        />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,35 +33,122 @@
             android:layout_height="50dp"
             android:hint="Username"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="18dp"
             android:padding="5dip"
             android:id="@+id/adminUsername"
-            android:background="@drawable/edittext_rounded"
-            />
+            android:background="@drawable/edit_round"
+        />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Password"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="18dp"
+            android:inputType="textPassword"
             android:padding="5dip"
             android:id="@+id/adminPassword"
-            android:background="@drawable/edittext_rounded"
-            />
+            android:background="@drawable/edit_round"
+        />
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Login"
-            android:textColor="@color/textColor"
-            android:backgroundTint="@color/themeColor"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="18dp"
-            android:padding="5dip"
-            android:background="@drawable/edittext_rounded"
-            android:onClick="myAuthCheckAdmin"
-            />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Login"
+        android:textColor="@color/textColor"
+        android:backgroundTint="@color/themeColor"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="18dp"
+        android:padding="5dip"
+        android:background="@drawable/edittext_rounded"
+        android:onClick="myAuthCheckAdmin"
+        />
     </LinearLayout>
 </LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--tools:context="com.developer.aditya.globalizers.admin_login"-->
+<!--android:background="#ffffff">-->
+<!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="210dp"-->
+            <!--android:background="#b62840">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Admin Login"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:textColor="#fff"-->
+                <!--android:textSize="35sp" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:minHeight="5dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="start"-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:id="@+id/adminUsername"-->
+            <!--android:background="@drawable/edit_round"-->
+            <!--android:hint="Username"/>-->
+
+
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:minHeight="5dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="start"-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:id="@+id/adminPassword"-->
+            <!--android:background="@drawable/edit_round"-->
+            <!--android:hint="Password"-->
+            <!--/>-->
+
+
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/edit_round1"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="#FFF"-->
+            <!--android:textSize="15dp"-->
+            <!--android:text="Login"-->
+            <!--android:padding="5dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:onClick="myAuthCheckAdmin"-->
+            <!--/>-->
+
+    <!--</LinearLayout>-->
+<!--</ScrollView>-->
+<!--</RelativeLayout>-->

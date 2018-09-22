@@ -29,6 +29,7 @@
         android:layout_weight="2"
         android:orientation="vertical">
         <ListView
+            tools:listitem="@layout/stats_prototype_cell"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/stateList"

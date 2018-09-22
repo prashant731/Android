@@ -25,6 +25,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -59,9 +60,11 @@ public class adminPage extends AppCompatActivity
     boolean drawME = false;
     boolean statsShow = false;
     boolean dueShow = false;
-    TextView name;
-    TextView num;
+    String name;
+    String num;
+    String courseDue;
     boolean courseClicked=false;
+    boolean dueClicked = false;
     boolean url3 = false,url1=false,url2=false;
 
     @Override
@@ -120,12 +123,12 @@ public class adminPage extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -168,18 +171,31 @@ public class adminPage extends AppCompatActivity
         onCreat3();
     }
 
-    public void callActivityNew(View view) {
+    public void callActivityNew(String n,String m) {
         numbers = new String[2];
                 url1=false;
         url3=false;
         url2 = true;
         courseClicked = true;
-        name = (TextView) findViewById(R.id.studName);
-        num = (TextView)findViewById(R.id.studentMobile);
+        name = n;
+        num = m;
         setContentView(R.layout.activity_course_clicked_student_profile);
         listView = (ListView)findViewById(R.id.prototype_cell_studentInfo);
         new InternAppAsyncTask().execute(createUrl(dataUrl2));
        // Toast.makeText(adminPage.this,"Temporary Removed",Toast.LENGTH_SHORT).show();
+    }
+
+    public void callActivityNewDue(String m,String n,String o) {
+        numbers = new String[2];
+        url1=false;
+        url3=false;
+        url2 = true;
+        dueClicked = true;
+        name = m;
+        courseDue = o;
+        setContentView(R.layout.activity_course_clicked_student_profile);
+        listView = (ListView)findViewById(R.id.prototype_cell_studentInfo);
+        new InternAppAsyncTask().execute(createUrl(dataUrl2));
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -268,8 +284,11 @@ public class adminPage extends AppCompatActivity
     }
 
     public void callDetailStudent(View view) {
+       // int id = view.getId();
         stud = true;
         numbers = new String[2];
+        //listView = (ListView)findViewById(R.id.prototype_cell);
+
         TextView studName = (TextView) findViewById(R.id.usernameStud);
         TextView studId = (TextView) findViewById(R.id.passwordStud);
         studNameS = studName.getText().toString();
@@ -545,7 +564,7 @@ public class adminPage extends AppCompatActivity
 
         if (!stud) {
             HashMap<Integer, MyName> myNameHashMap = new HashMap<>();
-            ArrayList<MyName> myNameArrayList = new ArrayList<>();
+            final ArrayList<MyName> myNameArrayList = new ArrayList<>();
             myNameHashMap = QueryUtils.extractRecord(jsonData, course);
             Log.d("myNameHAshMAp", "updateUI: " + myNameArrayList);
             for (Map.Entry<Integer, MyName> eachName : myNameHashMap.entrySet()) {
@@ -553,6 +572,15 @@ public class adminPage extends AppCompatActivity
             }
             AdapterClass itemAdapter = new AdapterClass(this, myNameArrayList);
             listView.setAdapter(itemAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    MyName name = myNameArrayList.get(position);
+                    Log.e("----clicked---", "onItemClick: "+name.getName()+" "+name.getNumber());
+                    Toast.makeText(adminPage.this,name.getName() + " " + name.getNumber(),Toast.LENGTH_SHORT).show();
+                    callActivityNew(name.getName(),name.getNumber());
+                }
+            });
         }
         else{
             HashMap<Integer, MyStudent> myNameHashMap = new HashMap<>();
@@ -587,17 +615,24 @@ public class adminPage extends AppCompatActivity
             drawME = false;
             dueShow = false;
             HashMap<Integer, MyDue> myNameHashMap = new HashMap<>();
-            ArrayList<MyDue> myNameArrayList = new ArrayList<>();
+            final ArrayList<MyDue> myNameArrayList = new ArrayList<>();
             myNameHashMap = QueryUtils.extractRecord(jsonData);
             Log.d("myNameHAshMAp", "updateUI: " + myNameArrayList);
             for (Map.Entry<Integer, MyDue> eachName : myNameHashMap.entrySet()) {
                 myNameArrayList.add(eachName.getValue());
             }
-           // Log.e("Before Sort : ", "updateUI: "+myNameArrayList );
             ArrayList<MyDue> farrList = sort1(myNameArrayList);
-            //Log.e("After Sort : ", "updateUI: "+farrList.toString() );
             AdapterClassDue itemAdapter = new AdapterClassDue(this, farrList);
             listView.setAdapter(itemAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    MyDue name = myNameArrayList.get(position);
+                    Log.e("----clicked---", "onItemClick: "+name.getName()+" "+name.getDate() + " "+name.getCourse());
+                    Toast.makeText(adminPage.this,name.getName() + " " + name.getDate(),Toast.LENGTH_SHORT).show();
+                    callActivityNewDue(name.getName(),name.getDate(),name.getCourse());
+                }
+            });
         }
         else if(drawME && statsShow)
         {
@@ -617,19 +652,40 @@ public class adminPage extends AppCompatActivity
         }
         else if(courseClicked)
         {
-//            HashMap<Integer, MyStudent> myNameHashMap = new HashMap<>();
-//            ArrayList<MyStudent> myNameArrayList = new ArrayList<>();
-//            myNameHashMap = QueryUtils.extractRecord(name.getText().toString(),num.getText().toString(),jsonData,numbers,true);
-//            Log.d("myNameHAshMAp", "updateUI: " + myNameArrayList);
-//            for (Map.Entry<Integer, MyStudent> eachName : myNameHashMap.entrySet()) {
-//                myNameArrayList.add(eachName.getValue());
-//            }
-//            AdapterClassNew itemAdapter = new AdapterClassNew(this, myNameArrayList);
-//            listView.setAdapter(itemAdapter);
-
+            courseClicked  = false;
             HashMap<Integer, MyStudent> myNameHashMap = new HashMap<>();
             ArrayList<MyStudent> myNameArrayList = new ArrayList<>();
-            myNameHashMap = QueryUtils.extractRecord(name.getText().toString(),num.getText().toString(),jsonData,numbers,true);
+            myNameHashMap = QueryUtils.extractRecord(name,num,jsonData,numbers,true);
+            Log.d("myNameHAshMAp", "updateUI: " + myNameArrayList);
+            for (Map.Entry<Integer, MyStudent> eachName : myNameHashMap.entrySet()) {
+                myNameArrayList.add(eachName.getValue());
+            }
+            if(myNameArrayList.size() >0) {
+                TextView name = (TextView) findViewById(R.id.studentInfoNameCourse);
+                name.setText(myNameArrayList.get(0).getName());
+
+                TextView course = (TextView) findViewById(R.id.studentInfoCourseNameCourse);
+                course.setText(myNameArrayList.get(0).getCourse());
+
+                TextView attendance = (TextView)findViewById(R.id.studentInfoStatsCourse);
+                attendance.setText("Total attendance : "+myNameArrayList.size()+"/30");
+
+                Log.e("Name and Course", "updateUI: " + name + course);
+                AdapterClassNew itemAdapter = new AdapterClassNew(this, myNameArrayList);
+                listView.setAdapter(itemAdapter);
+            }
+            else {
+                Toast.makeText(this, "No Such Student Found With Recent Transactions", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.activity_admin_page);
+            }
+
+        }
+        else if(dueClicked)
+        {
+            dueClicked = false;
+            HashMap<Integer, MyStudent> myNameHashMap = new HashMap<>();
+            ArrayList<MyStudent> myNameArrayList = new ArrayList<>();
+            myNameHashMap = QueryUtils.extractRecord(name,courseDue,jsonData,numbers,true,false);
             Log.d("myNameHAshMAp", "updateUI: " + myNameArrayList);
             for (Map.Entry<Integer, MyStudent> eachName : myNameHashMap.entrySet()) {
                 myNameArrayList.add(eachName.getValue());
@@ -654,6 +710,4 @@ public class adminPage extends AppCompatActivity
             }
         }
     }
-
-
 }

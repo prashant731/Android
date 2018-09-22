@@ -1,4 +1,5 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,10 +20,11 @@
 
             <ImageView
                 android:id="@+id/imageStudentInfo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/admin_login" />
+                android:layout_marginTop="30dp"
+                android:src="@drawable/logo"/>
 
             <TextView
                 android:id="@+id/studentInfoName"
@@ -33,6 +35,7 @@
                 android:layout_marginTop="8dp"
                 android:text="DummyName"
                 android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -44,6 +47,7 @@
                 android:layout_marginTop="8dp"
                 android:text="DummyCourse"
                 android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 
             <TextView
@@ -53,6 +57,7 @@
                 android:layout_below="@id/studentInfoCourseName"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
+                android:textStyle="bold"
                 android:textColor="#ffffff"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:text="Total Attendance : 0/30" />
@@ -79,20 +84,23 @@
                     android:layout_marginTop="20dp"
                     android:id="@+id/callStudent"
                     android:onClick="makeCallStudent"
+                    android:background="@drawable/shape2"
                     >
-                    <ImageView
-                        android:id="@+id/imageCallStudStudentInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/admin_login" />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/imageCallStudStudentInfo"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:src="@drawable/admin_login" />-->
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_toRightOf="@id/imageCallStudStudentInfo"
                         android:text="Call Student"
+                        android:textStyle="bold"
                         android:textColor="#ffffff"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
                         android:layout_marginLeft="8dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
@@ -103,21 +111,24 @@
                     android:layout_alignParentRight="true"
                     android:onClick="makeCallParent"
                     android:id="@+id/callParent"
+                    android:background="@drawable/shape2"
                     android:layout_marginTop="20dp">
 
-                    <ImageView
-                        android:id="@+id/imageCallParentStudentInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/admin_login" />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/imageCallParentStudentInfo"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:src="@drawable/admin_login" />-->
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_toRightOf="@id/imageCallParentStudentInfo"
                         android:text="Call Parent"
                         android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
                         android:layout_marginLeft="8dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
@@ -127,7 +138,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:background="#ffffff">
 
             <ListView
                 android:id="@+id/prototype_cell_studentInfo"
@@ -148,3 +160,126 @@
 
     </LinearLayout>
 </FrameLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+    <!--&gt;-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+   <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.developer.aditya.globalizers.studentDetailActivity">-->
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/RL1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="337dp"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:background="#b62840">-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="29dp"-->
+        <!--android:src="@drawable/user" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:id="@+id/studentInfoName"-->
+        <!--android:layout_marginBottom="131dp"-->
+        <!--android:text="Ankit Choudhary"-->
+        <!--android:textSize="30dp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:id="@+id/studentInfoCourseName"-->
+        <!--android:layout_marginBottom="89dp"-->
+        <!--android:text="GRE Crash Course"-->
+        <!--android:textSize="20dp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="43dp"-->
+        <!--android:id="@+id/studentInfoStats"-->
+        <!--android:text="Total Attendence: 21/30"-->
+        <!--android:textSize="20dp" />-->
+
+
+
+
+<!--</RelativeLayout>-->
+
+<!--<RelativeLayout-->
+    <!--android:id="@+id/RL2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="205dp"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_below="@+id/RL1"-->
+    <!--android:background="#ffffff">-->
+
+    <!--<Button-->
+        <!--android:id="@+id/Button1"-->
+        <!--android:layout_width="323dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="46dp"-->
+        <!--android:background="@drawable/shape2"-->
+        <!--android:padding="15dp"-->
+        <!--android:text="CALL STUDENT"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textStyle="bold" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/Button2"-->
+        <!--android:layout_width="323dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="40dp"-->
+        <!--android:background="@drawable/shape2"-->
+        <!--android:padding="15dp"-->
+        <!--android:text="CALL PARENT"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textStyle="bold" />-->
+
+<!--</RelativeLayout>-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="2">-->
+
+        <!--<ListView-->
+            <!--android:id="@+id/prototype_cell_studentInfo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="18dp"-->
+            <!--android:layout_marginRight="18dp"-->
+            <!--android:layout_marginTop="18dp"-->
+            <!--android:divider="@android:color/transparent"-->
+            <!--android:dividerHeight="18dp"-->
+            <!--&gt;-->
+
+        <!--</ListView>-->
+
+
+    <!--</LinearLayout>-->
+<!--</FrameLayout>-->
+
+<!--</RelativeLayout>-->

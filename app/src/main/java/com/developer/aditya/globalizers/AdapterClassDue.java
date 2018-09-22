@@ -22,7 +22,7 @@ public class AdapterClassDue extends ArrayAdapter<MyDue> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItem = convertView;
         if(listItem==null) {
-            listItem = LayoutInflater.from(getContext()).inflate(R.layout.due_prototype, parent, false);
+            listItem = LayoutInflater.from(getContext()).inflate(R.layout.cardview_item, parent, false);
         }
         MyDue myString = getItem(position);
 
@@ -32,6 +32,8 @@ public class AdapterClassDue extends ArrayAdapter<MyDue> {
         TextView skills = (TextView)listItem.findViewById(R.id.due_date);
         skills.setText(myString.getDate());
 
+        TextView course = (TextView)listItem.findViewById(R.id.due_course);
+        course.setText(myString.getCourse());
         return  listItem;
     }
 }

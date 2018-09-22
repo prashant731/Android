@@ -6,12 +6,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/admin_login"
+            android:icon="@drawable/user"
             android:title="Stats"
             android:onClick="openStats"/>
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/admin_login"
+            android:icon="@drawable/user"
             android:title="Due"
             android:onClick="openDue"/>
 
