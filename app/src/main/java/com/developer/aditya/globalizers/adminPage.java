@@ -101,15 +101,15 @@ public class adminPage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-//    @Override
-//    public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        if (drawer.isDrawerOpen(GravityCompat.START)) {
 //            drawer.closeDrawer(GravityCompat.START);
 //        } else {
-//            super.onBackPressed();
-//        }
-//    }
+            super.onBackPressed();
+       // }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -201,7 +201,9 @@ public class adminPage extends AppCompatActivity
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
+
             super(fm);
+
         }
 
         @Override
@@ -401,6 +403,7 @@ public class adminPage extends AppCompatActivity
     public void onCreat4() {
         Log.e("On create 4 with url", "onCreat4: "+dataUrl3 );
         setContentView(R.layout.activity_stats);
+
         listView = (ListView)findViewById(R.id.stateList);
         url1=false;
         url2=false;
@@ -458,6 +461,7 @@ public class adminPage extends AppCompatActivity
                 return;
             }
             updateUI(jsonResponse);
+
         }
 
     }

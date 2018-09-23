@@ -71,7 +71,7 @@ import java.util.HashMap;
                         if(js.has("time"))  time = (js.getString("time"));
                         timeStamp = date + " " + time;
                         Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp + date + time);
-                        result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
+                        result.put(i++,new MyStudent(id,name,course,number,parent,date,time));
                     }
                 }
             }
@@ -167,6 +167,8 @@ import java.util.HashMap;
             String id=null;
             String course = null;
             String timeStamp = null;
+            String time = null;
+            String date = null;
             try {
                 JSONArray jsonArray = new JSONArray(sampleJsonResponse);
                 for(int i=0;i<jsonArray.length();i++)
@@ -180,9 +182,11 @@ import java.util.HashMap;
                         if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
                         if(js.has("ParentContact")) parent = (js.getString("ParentContact"));
                         if(js.has("Course")) course= (js.getString("Course"));
-                        if(js.has("Date"))  timeStamp = (js.getString("Date"));
-                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
-                        result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
+                        if(js.has("Date"))  date = (js.getString("Date"));
+                        if(js.has("time"))  time = (js.getString("time"));
+                        timeStamp = date + " " + time;
+                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp + date + time);
+                        result.put(i++,new MyStudent(id,name,course,number,parent,date,time));
                         break;
                     }
                 }
@@ -205,7 +209,8 @@ import java.util.HashMap;
             String number=null;
             String parent=null;
             String id=null;
-            //String course = null;
+            String date = null;
+            String time = null;
             String timeStamp = null;
             try {
                 JSONArray jsonArray = new JSONArray(sampleJsonResponse);
@@ -220,9 +225,11 @@ import java.util.HashMap;
                         if(js.has("PersonalContact")) number=(js.getString("PersonalContact"));
                         if(js.has("ParentContact")) parent = (js.getString("ParentContact"));
                         if(js.has("Course")) course= (js.getString("Course"));
-                        if(js.has("Date"))  timeStamp = (js.getString("Date"));
-                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp);
-                        result.put(i++,new MyStudent(id,name,course,number,parent,timeStamp));
+                        if(js.has("Date"))  date = (js.getString("Date"));
+                        if(js.has("time"))  time = (js.getString("time"));
+                        timeStamp = date + " " + time;
+                        Log.e("Name and number", "extractRecord: "+id+name + number + parent+course+timeStamp + date + time);
+                        result.put(i++,new MyStudent(id,name,course,number,parent,date,time));
                         break;
                     }
                 }

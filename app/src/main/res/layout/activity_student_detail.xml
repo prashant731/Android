@@ -84,13 +84,13 @@
                     android:layout_marginTop="20dp"
                     android:id="@+id/callStudent"
                     android:onClick="makeCallStudent"
-                    android:background="@drawable/shape2"
                     >
-                    <!--<ImageView-->
-                        <!--android:id="@+id/imageCallStudStudentInfo"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:src="@drawable/admin_login" />-->
+                    <ImageView
+                        android:id="@+id/imageCallStudStudentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/call"
+                        android:layout_centerVertical="true"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -98,10 +98,10 @@
                         android:layout_marginTop="8dp"
                         android:text="Call Student"
                         android:textStyle="bold"
-                        android:textColor="#ffffff"
-                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/imageCallStudStudentInfo"
+                        android:textColor="#00ff00"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="3dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
 
@@ -111,25 +111,25 @@
                     android:layout_alignParentRight="true"
                     android:onClick="makeCallParent"
                     android:id="@+id/callParent"
-                    android:background="@drawable/shape2"
                     android:layout_marginTop="20dp">
 
-                    <!--<ImageView-->
-                        <!--android:id="@+id/imageCallParentStudentInfo"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:src="@drawable/admin_login" />-->
+                    <ImageView
+                        android:id="@+id/imageCallParentStudentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/call"
+                        android:layout_centerVertical="true"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Call Parent"
-                        android:textColor="#ffffff"
+                        android:textColor="#00ff00"
                         android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/imageCallParentStudentInfo"
                         android:textStyle="bold"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="3dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
             </RelativeLayout>

@@ -21,14 +21,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DummyName"
-                android:id="@+id/checktime"
+                android:id="@+id/checkDate"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="checkin/checkout"
                 android:layout_marginTop="5dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+                android:id="@+id/checktime"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"/>
         </LinearLayout>
 
         <ImageView
@@ -36,7 +39,7 @@
             android:layout_height="60dp"
             android:id="@+id/imgInOut"
             android:paddingTop="10dp"
-            android:src="@drawable/admin_login"
+            android:src="@drawable/outgoing"
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>

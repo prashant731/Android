@@ -32,13 +32,12 @@
 
             <ListView
                 android:id="@+id/prototype_cell"
+                tools:listitem="@layout/list_student"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="18dp"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="18dp"></ListView>
+                android:layout_marginTop="18dp"></ListView>
 
 
         </LinearLayout>

@@ -21,10 +21,12 @@
 
             <ImageView
                 android:id="@+id/imageStudentInfoCourse"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/admin_login" />
+                android:src="@drawable/logo"
+                />
 
             <TextView
                 android:id="@+id/studentInfoNameCourse"
@@ -35,7 +37,8 @@
                 android:layout_marginTop="8dp"
                 android:text="DummyName"
                 android:textColor="#ffffff"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
             <TextView
                 android:id="@+id/studentInfoCourseNameCourse"
@@ -46,6 +49,7 @@
                 android:layout_marginTop="8dp"
                 android:text="DummyCourse"
                 android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 
             <TextView
@@ -56,6 +60,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
                 android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:text="Total Attendance : 0/30" />
 
@@ -86,16 +91,19 @@
                         android:id="@+id/imageCallStudStudentInfoCourse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/admin_login" />
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/call" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:text="Student"
+                        android:layout_centerVertical="true"
+                        android:textColor="#00ff00"
                         android:layout_toRightOf="@id/imageCallStudStudentInfoCourse"
-                        android:text="Call Student"
-                        android:textColor="#ffffff"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="3dp"
+                        android:textStyle="bold"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
 
@@ -111,16 +119,19 @@
                         android:id="@+id/imageCallParentStudentInfoCourse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/admin_login" />
+                        android:src="@drawable/call"
+                        android:layout_centerVertical="true"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/imageCallParentStudentInfoCourse"
-                        android:text="Call Parent"
-                        android:textColor="#ffffff"
-                        android:layout_marginLeft="8dp"
+                        android:text="Parent"
+                        android:textStyle="bold"
+                        android:textColor="#00ff00"
+                        android:layout_marginLeft="3dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 </RelativeLayout>
             </RelativeLayout>
